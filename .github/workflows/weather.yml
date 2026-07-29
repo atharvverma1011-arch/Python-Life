@@ -1,0 +1,28 @@
+name: Daily Weather Notification
+
+on:
+    schedule:
+        - cron: '30 1 * * *'
+    workflow_dispatch:
+
+jobs:
+    run-weather-script:
+      runs-on: ubuntu-latest
+      steps:
+            - name: checkout repositary code
+              uses: actions/checkout@v4
+
+            - name: set up Python
+              uses: actions/setup-Python@v5
+              with:
+                  python-version: '3.11'
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install requests
+
+            - name: Run weather script
+              env:
+                OWM_API_KEY: ${{ secrets.OWM_API_KEY}}
+              run: python "Desktop/Automate the boring stuff with python/chapter 20/weather.py"
