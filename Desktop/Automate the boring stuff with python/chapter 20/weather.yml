@@ -10,10 +10,10 @@ jobs:
       runs-on: ubuntu-latest
       steps:
             - name: checkout repositary code
-              users: actions/checkout@v4
+              uses: actions/checkout@v4
 
             - name: set up Python
-              users: actions/setup-Python@v5
+              uses: actions/setup-Python@v5
               with:
                   python-version: '3:11'
 
