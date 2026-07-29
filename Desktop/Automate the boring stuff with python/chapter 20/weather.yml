@@ -1,0 +1,26 @@
+name: Daily Weather Notification
+
+on:
+    schedule:
+        - cron: '30 * * *'
+    workflow_dispatch
+
+jobs:
+    run-weather-script:
+      runs-on:
+      steps:
+            - name:checkout repositary code
+              users: actions/checkout@v4
+
+            - name: set up Python
+              users:actions/setup-Python@v5
+              with:
+                  python-version: '3:11'
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install requests
+
+            - name: Run weather script
+              run: Python weather.py
