@@ -23,4 +23,6 @@ jobs:
                   pip install requests
 
             - name: Run weather script
+              env:
+                OWM_API_KEY: ${{ secrets.OWM_API_KEY}}
               run: Python "Desktop/Automate the boring stuff with python/chapter 20/weather.py"
