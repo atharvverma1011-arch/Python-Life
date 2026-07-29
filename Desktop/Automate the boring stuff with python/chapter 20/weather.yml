@@ -7,13 +7,13 @@ on:
 
 jobs:
     run-weather-script:
-      runs-on:
+      runs-on: ubuntu-latest
       steps:
-            - name:checkout repositary code
+            - name: checkout repositary code
               users: actions/checkout@v4
 
             - name: set up Python
-              users:actions/setup-Python@v5
+              users: actions/setup-Python@v5
               with:
                   python-version: '3:11'
 
