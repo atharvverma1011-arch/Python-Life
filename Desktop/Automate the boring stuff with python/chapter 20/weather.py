@@ -14,7 +14,9 @@ data = response.json()
 
 #description = data['weather'][0]['description']
 #temp = data['main']['temp']
-today =  datetime.now().strftime('%Y-%m-%d')
+#today =  datetime.now().strftime('%Y-%m-%d')
+now_ist = datetime.now()
+today = now_ist.strftime('%Y-%m-%d')
 rain_times = []
 
 #print(f'Weather in {city}: {description}, {temp}')
