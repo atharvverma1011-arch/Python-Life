@@ -22,8 +22,10 @@ for entry in data['list']:
     if entry['dt_txt'].startswith(today):
         description = entry['weather'][0]['description']
         if 'rain' in description.lower():
-            time_only = entry['dt_txt'].split(' ')[1]
-            rain_times.append(f'{time_only} ({description})')
+            utc_time = datetime.strptime(entry['dt_txt'], '%Y-%m-%d %H:%M:%S')
+            ist_time = utc_time + timedelta(hours=5, minutes=30)
+            time_only = ist_time.strftime('%H:%M')
+            rain_times.append(f'{time_only} IST ({description})')
 
 if rain_times:
     times_str = ', '.join(rain_times)
