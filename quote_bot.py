@@ -6,7 +6,7 @@ import os
 with open("credentials.json","w") as f:
     f.write(os.environ["GMAIL_CREDENTIALS"])
 with open("token.json","w") as f:
-    f.write(os.environ{"GMAIL_TOKEN"])
+    f.write(os.environ{"GMAIL_TOKEN"})
 
 # READ THE QOTE FILE
 with open("quotes.txt") as f:
